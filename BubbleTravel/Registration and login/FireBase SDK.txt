@@ -1,0 +1,20 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCrbsFw6Uem1LFaC2FsowdoWjML2TTwWb0",
+    authDomain: "bubbletravel-web.firebaseapp.com",
+    databaseURL: "https://bubbletravel-web.firebaseio.com",
+    projectId: "bubbletravel-web",
+    storageBucket: "",
+    messagingSenderId: "523886629405",
+    appId: "1:523886629405:web:593299a141e9419b"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Current Weather</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Weather.Css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+	<div class="bg"></div>
+	<div>
+    <div id="description"></div>
+      <h1 id="temp"></h1>
+    <div id="location"></div>
+  </div>
+
+  <div class="container">
+    <div class="row from-group from-inline" id="rowDiv">
+        <input type="text" dir="auto" class="form-control" id="city" placeholder="הזן את שם העיר">
+        <button type="button" dir="rtl" onclick="myFunc()" id="send" class="btn btn-dark">חפש מזג אוויר</button>
+    </div>
+  </div>  
+  
+  <script src="Weather.JS"></script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>Firebase Login</title>
+  <link   rel="stylesheet" href="Login_and_Registration.css" />
+  <link   href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <img class="background-page" src="C:\Users\galpa\Desktop\מדעי המחשב\תקיות לימודים\שנה רביעית סימסטר ב\תכנות web\BubbleTravel/registeration_login_picture.jpg">
+
+  <h2 id="headLineLoginPage">Bubbletravel</h2>
+  <b><p class="subLineLoginPage">התחברות לאיזור האישי</p></b>
+
+  <div id="login_div" class="main-div">
+    <input type="email" dir="rtl" placeholder="כתובת דואר אלקטרוני" id="email_field" />
+    <input type="password" dir="rtl" placeholder="הזן סיסמא" id="password_field" />
+
+    <button id=btn1 dir="rtl" onclick="login()">התחבר</button>
+    <button id=btn2 dir="rtl" onclick="signUp()">הירשם</button>
+  </div>
+
+  <div id="user_div" class="loggedin-div">
+    <h3>Welcome User</h3>
+    
+    <button id="btn3" dir="rtl" onclick="logout()">יציאה מהחשבון</button>
+    <button id="btn4" dir="rtl" onclick="backToMainPage()">חזרה לדף הראשי</button>
+    
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCrbsFw6Uem1LFaC2FsowdoWjML2TTwWb0",
+      authDomain: "bubbletravel-web.firebaseapp.com",
+      databaseURL: "https://bubbletravel-web.firebaseio.com",
+      projectId: "bubbletravel-web",
+      storageBucket: "",
+      messagingSenderId: "523886629405",
+      appId: "1:523886629405:web:593299a141e9419b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="Login_and_Registration.js"></script>
+
+</body>
+</html>
