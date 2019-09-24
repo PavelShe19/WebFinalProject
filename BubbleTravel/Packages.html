@@ -9,6 +9,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 <body>
 
@@ -81,9 +86,9 @@
           <option>אל: בודפשט, הונגריה</option>
         </select>
 
-        <select class="form-control" dir="rtl" id="sel3" name="sellist3">
-            <option>מתי ?</option>
-          </select>
+        
+        <input class="form-control" dir="rtl" id="sel3" type="text" name="daterange" value="09/23/2019 - 10/1/2019" />
+      
 
         <select class="form-control" dir="rtl" id="sel4" name="sellist4">
             <option>1 נוסעים</option>
@@ -110,7 +115,12 @@
                 <b><a class="nav-link">זמינים בשבילכם 24/7</a></b>
               </li>
             </ul>
-          </div>          
+          </div>
+          
+        
+      <script src="DateRangePicker.js"></script>
+
+          
             
 </body>
 </html>
