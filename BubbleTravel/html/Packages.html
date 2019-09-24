@@ -3,19 +3,17 @@
   <title>Bootstrap</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="MainPage.css">
+  <link rel="stylesheet" href="../Packages.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-  
 </head>
 <body>
 
@@ -60,8 +58,8 @@
               <a class="dropdown-item" href="#">המרת מט"ח</a>
               <a class="dropdown-item" href="#">ביטוח נסיעות</a>
               <a class="dropdown-item" href="#">שירות לקוחות</a>
-              <a class="dropdown-item" href="C:\Users\galpa\Desktop\מדעי המחשב\תקיות לימודים\שנה רביעית סימסטר ב\תכנות web\BubbleTravel\Weather\Weather.html">בדיקת מזג אוויר ליעד</a>
-              <a class="dropdown-item" href="C:\Users\galpa\Desktop\מדעי המחשב\תקיות לימודים\שנה רביעית סימסטר ב\תכנות web\BubbleTravel\Registration and login/Login_and_Registration.html">התחברות/הרשמה</a>
+              <a class="dropdown-item" href="Weather.html">בדיקת מזג אוויר ליעד</a>
+              <a class="dropdown-item" href="Login_and_Registration.html">התחברות/הרשמה</a>
             </div>
             </li>                
             </ul>
@@ -70,8 +68,8 @@
               
         
         <div class="main-mnue">
-        <img class="main-image" src="profile_picture.jpg">
-        <div class="headLine"><h2>חיפוש טיסות זולות לחו"ל</h2></div> 
+        <img class="main-image" src="../resources/profile_picture.jpg">
+        <div class="headLine"><h2>חיפוש דילים בחו"ל</h2></div> 
 
         <select class="form-control" dir="rtl" id="sel1" name="sellist1">
           <option>מ: תל אביב, שדה תעופה TLV</option>
@@ -88,7 +86,9 @@
           <option>אל: בודפשט, הונגריה</option>
         </select>
 
+        
         <input class="form-control" dir="rtl" id="sel3" type="text" name="daterange" value="09/23/2019 - 10/1/2019" />
+      
 
         <select class="form-control" dir="rtl" id="sel4" name="sellist4">
             <option>1 נוסעים</option>
@@ -116,34 +116,11 @@
               </li>
             </ul>
           </div>
-
-          <div id="headline2"><h2 dir="rtl"><span class="Bline">BubbleTravel</span> אתר התיירות הגדול בישראל </h2></div>
-
-          <div class="Promotions">
-              <img id="banner1" src="Banner_9425.jpg" alt="Avatar">
-              <img id="banner2" src="Banner_9351.jpg" alt="Avatar">
-              <img id="banner3" src="Banner_9454.jpg" alt="Avatar">
-          </div>
-
-          <div class="Deals">
-            <div id="headline3"><h2 dir="ltr"><span class="Bline">BubbleTravel</span> דילים חמים ב</h2></div>
-            <b><p id="pline" dir="rtl">דילים שישלחו אתכם לארוז!</p></b>
-          </div>
-
-            <div class="card" id="card1">
-                <img id="london_imge" src="london.jpg" alt="טיסה ללונדון">
-                <div class="container" id="con_lon">
-                  <h6 id="sub_title1" dir="rtl"><b>טיסה ללונדון</b></h6>
-                  <br>
-                  <p id="sub_title2">טיסה ישירה כולל מזוודה</p>
-                  <p id="sub_title3" dir="rtl">100$</p>
-                </div>
-            </div>
-
+          
+        
+      <script src="../javascript/DateRangePicker.js"></script>
 
           
-          <script src="DateRangePicker.js"></script>
-              
             
 </body>
 </html>
