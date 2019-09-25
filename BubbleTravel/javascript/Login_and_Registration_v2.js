@@ -81,14 +81,14 @@ function scheduleA(event) {
         myFunc_v2(location);
         location = location.toLowerCase();
         location = location.replace(" ", "_");
-        getDataFromFirebase(location,"flight_data","destination","flightList", window.flight_data);
-        getDataFromFirebase(location,"hotel_data","location","hotelList", window.hotel_data);
-        getDataFromFirebase(location,"car_data","car","carList", window.car_data);
+        getDataFromFirebase(location,"flight_data","destination","flightList", window.flight_data, new Array("ECONOMY","BUSINESS"));
+        getDataFromFirebase(location,"hotel_data","location","hotelList", window.hotel_data, new Array("3 STARS","4 STARS","5 STARS"));
+        getDataFromFirebase(location,"car_data","car","carList", window.car_data, new Array("MINI","COMPACT","LUXURY"));
     }
 
 }
 
-function getDataFromFirebase(location, collection, fieldName, list, data_array) {
+function getDataFromFirebase(location, collection, fieldName, list, data_array, quality_names) {
     var db = firebase.firestore();
     if(data_array.length != 0) {
         data_array = [];
@@ -103,7 +103,7 @@ function getDataFromFirebase(location, collection, fieldName, list, data_array) 
                     data_array.push(doc.data());
                 });
                 clearList(list);
-                putDataInListExp(list, data_array.sort(compareBuyable));
+                putDataInListExp(list, data_array.sort(compareBuyable),quality_names);
             })
             .catch(function (error) {
                 console.log("Error getting documents: ", error);
@@ -118,7 +118,7 @@ function getDataFromFirebase(location, collection, fieldName, list, data_array) 
                 data_array.push(doc.data());
             });
             clearList(list);
-            putDataInListExp(list, data_array);
+            putDataInListExp(list, data_array.sort(compareBuyable),quality_names);
         })
         .catch(function (error) {
             console.log("Error getting documents: ", error);
@@ -139,7 +139,7 @@ function putDataInList(listName, data_array) {
     });
 }
 
-function putDataInListExp(listName, data_array) {
+function putDataInListExp(listName, data_array, quality_names) {
 
     var index = 1;
 
@@ -159,7 +159,7 @@ function putDataInListExp(listName, data_array) {
         //div row name
         var nameDiv = document.createElement("DIV");
         nameDiv.setAttribute("class","row");
-        var textnode = document.createTextNode(element.name);
+        var textnode = document.createTextNode(element.name + " - " + quality_names[element.quality-1]);
         nameDiv.appendChild(textnode);
         //div row price
         var priceDiv = document.createElement("DIV");
