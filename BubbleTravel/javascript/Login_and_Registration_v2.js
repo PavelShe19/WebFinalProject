@@ -76,8 +76,17 @@ function backToMainPage() {
 
 function scheduleA(event) {
     if (this.selectedIndex != 0) {
-        //alert(this.options[this.selectedIndex].text);
         var location = this.options[this.selectedIndex].text;
+        //location change
+        flight_data = [];
+        hotel_data = [];
+        car_data = [];
+
+        flight_selected_index = -1;
+        hotel_selected_index = -1;
+        car_selected_index = -1;
+        updateCosts();
+        
         myFunc_v2(location);
         location = location.toLowerCase();
         location = location.replace(" ", "_");
