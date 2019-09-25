@@ -9,27 +9,20 @@
 </head>
 <body>
 
-  <img class="background-page" src="../resources/registeration_login_picture.jpg">
-
-  <h2 id="headLineLoginPage">Bubbletravel</h2>
-  <b><p class="subLineLoginPage">התחברות לאיזור האישי</p></b>
-
-  <div id="login_div" class="main-div">
-    <input type="email" dir="rtl" placeholder="כתובת דואר אלקטרוני" id="email_field" />
-    <input type="password" dir="rtl" placeholder="הזן סיסמא" id="password_field" />
-
-    <button id=btn1 dir="rtl" onclick="login()">התחבר</button>
-    <button id=btn2 dir="rtl" onclick="signUp()">הירשם</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+    </div>
   </div>
-
-  <div id="user_div" class="loggedin-div">
-    <h3>Welcome User</h3>
-    
-    <button id="btn3" dir="rtl" onclick="logout()">יציאה מהחשבון</button>
-    <button id="btn4" dir="rtl" onclick="backToMainPage()">חזרה לדף הראשי</button>
-    
-  </div>
-
+ 
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script>
     // Your web app's Firebase configuration

@@ -33,8 +33,7 @@ function drawWeather( d ) {
 
 //get by defult
 window.onload = function() {
-	console.log(document.getElementById("city").value);
-	weatherBallon('Tel aviv');	
+	weatherBallon('LONDON');	
 }
 
 function movePage3() {
@@ -45,8 +44,11 @@ function movePage3() {
 //get from input
 function myFunc() {
 	var x = document.getElementById("city").value;
-	weatherBallon(x);	
-	console.log(x);
+	weatherBallon(x);
 	return x;
 }
 
+function myFunc_v2(x) {
+	weatherBallon(x);
+	return x;
+}
