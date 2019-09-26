@@ -18,17 +18,17 @@ $(function() {
     minDate: new Date(),
     opens: 'left'
   }, function(start, end, label) {
-    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-    date_from = start.format('YYYY-MM-DD');
-    date_to = end.format('YYYY-MM-DD');
+    console.log("A new date selection was made: " + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY'));
+    date_from = start.format('DD/MM/YYYY');
+    date_to = end.format('DD/MM/YYYY');
     numOfDays = datediff(parseDate(date_from),parseDate(date_to));
     console.log("Num of days: " + numOfDays);
   });
 });
 
 function parseDate(str) {
-  var mdy = str.split('-');
-  var dt = new Date(year = mdy[0], month = mdy[1], day = mdy[2]-1);
+  var mdy = str.split('/');
+  var dt = new Date(year = mdy[2], month = mdy[1], day = mdy[0]-1);
   return dt;
 }
 

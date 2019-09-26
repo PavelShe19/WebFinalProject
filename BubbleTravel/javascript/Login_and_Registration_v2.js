@@ -6,6 +6,9 @@ var flight_selected_index = -1;
 var hotel_selected_index = -1;
 var car_selected_index = -1;
 
+var cityLocation;
+var userID;
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
@@ -21,6 +24,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         if (user != null) {
 
             var email_id = user.email;
+            userID = user.uid;
             document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
 
         }
@@ -34,6 +38,21 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(function() {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+  
 function signUp() {
 
     var userEmail = document.getElementById("email_field").value;
@@ -77,6 +96,7 @@ function backToMainPage() {
 function scheduleA(event) {
     if (this.selectedIndex != 0) {
         var location = this.options[this.selectedIndex].text;
+        window.cityLocation = location;
         //location change
         flight_data = [];
         hotel_data = [];
@@ -264,3 +284,79 @@ function updateCosts() {
     var totalCost = flightCost + hotelCost + carCost;
     document.getElementById("totalCost").innerHTML = "TOTAL COST: " + totalCost;
 }
+
+function orderPackage() {
+    if(car_selected_index == -1 && flight_selected_index == -1 && hotel_selected_index == -1) {
+        alert("Please select at least on option");
+        return;
+    }
+    let db = firebase.firestore();
+
+    let flightHash = "0";
+    let hotelHash = "0";
+    let carHash = "0";
+
+    let carObj = null;
+    if(car_selected_index > -1) {
+        carObj = window.car_data[car_selected_index];
+        carHash = carObj.name;
+    }
+    let hotelObj = null;
+    if(hotel_selected_index > -1) {
+        hotelObj = window.hotel_data[hotel_selected_index]
+        hotelHash = hotelObj.name;
+    }
+    let flightObj = null;
+    if(flight_selected_index > -1) {
+        flightObj = window.flight_data[flight_selected_index]
+        flightHash = flightObj.name;
+    }
+    let orderID = window.userID;
+    orderID = orderID.concat(flightHash.hashCode());
+    orderID = orderID.concat(hotelHash.hashCode());
+    orderID = orderID.concat(carHash.hashCode());
+    orderID = orderID.concat(window.date_from.hashCode());
+    orderID = orderID.concat(window.date_to.hashCode());
+    // Add a new document in collection "cities"
+    console.log("orderID: ", orderID);
+    db.collection("orders").add({
+        car: carObj,
+        date_from: window.date_from,
+        date_to: window.date_to,
+        flight: flightObj,
+        hotel: hotelObj,
+        location: window.cityLocation.toLowerCase(),
+        num_of_nights: window.numOfDays.toString(),
+        orderID: orderID,
+        user: window.userID
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+        var result = document.getElementById("done");
+        result.innerHTML = "DONE";
+        result.setAttribute("style","color:MediumSeaGreen");
+        $("#done").fadeTo(5000,1).fadeOut(1000);
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+        var result = document.getElementById("done");
+        result.innerHTML = "ERROR";
+        result.setAttribute("style","color:Tomato");
+        $("#done").fadeTo(5000,1).fadeOut(1000);
+    });
+}
+
+String.prototype.hashCode = function() {
+    let hash = 0, i, chr;
+    if (this.length === 0) return hash;
+    for (i = 0; i < this.length; i++) {
+      chr   = this.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+  };
+
+  function showOrders() {
+    window.location.href = "previewPage.html";
+  }

@@ -134,6 +134,12 @@ body {
     font-size: 15px;
     background-color: darkgreen;
   }
+
+  button{
+    margin-top: 10px;
+    font-size: 15px;
+    background-color: darkgreen;
+  }
   
   .background-page{
     position: absolute;

@@ -29,60 +29,45 @@
                     <h3 id="user_para">USER</h3>
 
                     <button id="btn3" onclick="logout()">LOGOUT</button>
-                    <button id="btn4" onclick="showOrders()">MY ORDERS</button>
-                </div>
-            </div>
-            <div class="col" id="location_and_weather">
-                <select class="form-control" id="sel2" autocomplete="off" name="sellist2"
-                    onchange="scheduleA.call(this, event)">
-                    <option>PICK A LOCATION</option>
-                    <option>LONDON</option>
-                    <option>PARIS</option>
-                    <option>NEW YORK</option>
-                    <option>ROME</option>
-                </select>
-
-                <input class="form-control" id="sel3" type="text" name="daterange" value="09/23/2019 - 10/1/2019" />
-                <div>
-                    <div id="description"></div>
-                    <h1 id="temp"></h1>
-                    <div id="location"></div>
+                    <button id="btn4" onclick="goToOrderPage()">MAKE NEW ORDER</button>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-end" id="cost">
-            
-            <div class="col-4" id="totalCost">
-                TOTAL COST: 0
+        <div class="row" id="titles">
+            <div class="col" id="titleOrderList">
+                ORDER LIST
             </div>
-            <div class="col-4">
-                <button type="button" onclick="orderPackage()">ORDER</button>
-                <div id="done"></div>
+            <div class="col" id="titleOrder">
+                ORDER
             </div>
         </div>
-        <div class="row" id="prices">
-            <div class="col" id="flightCost">
-                FLIGHT COST: 0
-            </div>
-            <div class="col" id="hotelCost">
-                HOTEL COST: 0
-            </div>
-            <div class="col" id="carCost">
-                CAR COST: 0
-            </div>
-        </div>
-        
         <div class="row bottombanner" id="packages">
-            <!-- <div class="col"> -->
-            <div class="col d-flex flex-column" id="flightList"></div>
-            <!-- </div> -->
-            <!-- <div class="col"> -->
-            <div class="col d-flex flex-column" id="hotelList"></div>
-            <!-- </div> -->
-            <!-- <div class="col"> -->
-            <div class="col d-flex flex-column" id="carList"></div>
-
-            <!-- </div> -->
+            <div class="col d-flex flex-column" id="orderList"></div>
+            <div class="col d-flex flex-column" id="order">
+                
+                <!-- <div> LOCATION</div>
+                <div> 01/01/2000 - 02/01/2000</div>
+                <div>
+                    <img src="../resources/london.jpg" class="img-thumbnail" style="width:50%;float:left"></img>
+                    <div> FLIGHT NAME</div>
+                    <div> FLIGHT COST</div>
+                </div>
+                <div>
+                <img src="../resources/london.jpg" class="img-thumbnail" style="width:50%;float:left"></img>
+                <div> HOTEL NAME</div>
+                <div> HOTEL COST</div>
+                <div> HOTEL TOTAL COST</div>
+            </div>
+                <div>
+                <img src="../resources/london.jpg" class="img-thumbnail" style="width:50%;float:left"></img>
+                <div> CAR NAME</div>
+                <div> CAR COST</div>
+                <div> CAR TOTAL COST</div>
+            </div>
+                <div> TOTAL COST</div>
+                <button id="btnCancelOrder" onclick="cancelOrder">CANCEL ORDER</button>
+            </div> -->
+        
         </div>
     </div>
 
@@ -121,8 +106,7 @@
 
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="../javascript/Weather.js"></script>
-    <script type="text/javascript" src="../javascript/Login_and_Registration_v2.js"></script>
-    <script type="text/javascript" src="../javascript/DateRangePicker.js"></script>
+    <script type="text/javascript" src="../javascript/previewPage.js"></script>
 </body>
 
 </html>
