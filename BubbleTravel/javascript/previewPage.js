@@ -261,7 +261,7 @@ function cancelOrder() {
         querySnapshot.forEach(function(doc) {
             doc.ref.delete();
         });
-        //getDataFromFirebase();
+        getDataFromFirebase();
         clearList("order");
     });
 }
