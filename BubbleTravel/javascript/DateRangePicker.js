@@ -28,7 +28,7 @@ $(function() {
 
 function parseDate(str) {
   var mdy = str.split('/');
-  var dt = new Date(year = mdy[2], month = mdy[1], day = mdy[0]-1);
+  var dt = new Date(year = mdy[2], month = mdy[1]-1, day = mdy[0]);
   return dt;
 }
 

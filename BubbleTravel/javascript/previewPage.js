@@ -1,6 +1,8 @@
 var data_array = [];
 var selectedOrder = -1;
 var userID;
+var currentCity;
+var prevCity;
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -167,7 +169,19 @@ function clickListener(id) {
     console.log(thenum);
     console.log(window.data_array[thenum].orderID);
     window.selectedOrder = thenum;
+    if(window.currentCity != null) {
+        window.prevCity = window.currentCity;
+        window.currentCity = window.data_array[thenum].location;
+    } else {
+        window.currentCity = window.data_array[thenum].location;
+        window.prevCity = window.currentCity;
+    }
+    if(window.prevCity != window.currentCity) {
+        clearList("chatList");
+    }
+    document.getElementById("chatInputBox").setAttribute("style","visibility:visible");
     showOrderPage(window.data_array[thenum]);
+    chatListener(window.data_array[thenum].location);
 }
 
 function showOrderPage(order) {
@@ -264,4 +278,35 @@ function cancelOrder() {
         getDataFromFirebase();
         clearList("order");
     });
+}
+
+function chatListener(cityLocation) {
+    var chatRef = firebase.database().ref().child(cityLocation.toLowerCase().replace(" ","_"));
+    chatRef.on('child_added', function(snapshot) {
+        updateChat(snapshot.val());
+    });
+}
+
+function updateChat(snapshot) {
+    //let preObject = document.getElementById("chatList");
+    //console.log(snapshot.val());
+    let chatLine = document.createElement("DIV");
+    let date = new Date(snapshot.created);
+    //let dateString = date.format("DD/MM/YY'T'HH:MM").toString();
+    //let textnode = document.createTextNode(snapshot.user + "(" + dateString + "): " + snapshot.content);
+    let textnode = document.createTextNode(snapshot.userName.split("@")[0] + ": " + snapshot.content);
+    chatLine.appendChild(textnode);
+    document.getElementById("chatList").appendChild(chatLine);
+}
+
+function sendChatMsg() {
+    let text = document.getElementById("inputChat").value;
+    document.getElementById("inputChat").value = "";
+    if(text != null && text != "") {
+        firebase.database().ref(window.currentCity.toLowerCase().replace(" ","_")).push({
+            content: text,
+            created: new Date().getTime(),
+            userName: firebase.auth().currentUser.email.split("@")[0]
+        });
+    }
 }

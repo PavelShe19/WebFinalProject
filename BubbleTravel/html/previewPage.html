@@ -40,40 +40,25 @@
             <div class="col" id="titleOrder">
                 ORDER
             </div>
+            <div class="col" id="titleChat">
+                CHAT
+            </div>
         </div>
         <div class="row bottombanner" id="packages">
             <div class="col d-flex flex-column" id="orderList"></div>
-            <div class="col d-flex flex-column" id="order">
-                
-                <!-- <div> LOCATION</div>
-                <div> 01/01/2000 - 02/01/2000</div>
-                <div>
-                    <img src="../resources/london.jpg" class="img-thumbnail" style="width:50%;float:left"></img>
-                    <div> FLIGHT NAME</div>
-                    <div> FLIGHT COST</div>
-                </div>
-                <div>
-                <img src="../resources/london.jpg" class="img-thumbnail" style="width:50%;float:left"></img>
-                <div> HOTEL NAME</div>
-                <div> HOTEL COST</div>
-                <div> HOTEL TOTAL COST</div>
+            <div class="col d-flex flex-column" id="order"></div>
+            <div class="col d-flex flex-column" id="chatList"></div>
+            <div id="chatInputBox" style="visibility: hidden">
+                <input type="text" id="inputChat" type="text">
+                <button type="button" id="btnInputChat" onclick="sendChatMsg()">ENTER</button>         
             </div>
-                <div>
-                <img src="../resources/london.jpg" class="img-thumbnail" style="width:50%;float:left"></img>
-                <div> CAR NAME</div>
-                <div> CAR COST</div>
-                <div> CAR TOTAL COST</div>
-            </div>
-                <div> TOTAL COST</div>
-                <button id="btnCancelOrder" onclick="cancelOrder">CANCEL ORDER</button>
-            </div> -->
-        
         </div>
     </div>
-
+    <button type="button" id="fixedbutton">CHAT</button> 
     <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
