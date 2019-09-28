@@ -35,6 +35,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("login_div").style.display = "block";
         // document.getElementById("packages").style.display = "invisible";
         document.getElementById("location_and_weather").style.display = "none";
+        //window.location.href = "../MainPage.html";
     }
 });
 
