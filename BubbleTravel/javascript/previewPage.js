@@ -71,7 +71,7 @@ function logout() {
 }
 
 function goToOrderPage() {
-    window.location.href = "Login_and_Registration_v2.html";
+    window.location.href = "orderPage.html";
 }
 
 function getDataFromFirebase() {
