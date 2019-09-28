@@ -169,16 +169,17 @@ function clickListener(id) {
     console.log(thenum);
     console.log(window.data_array[thenum].orderID);
     window.selectedOrder = thenum;
-    if(window.currentCity != null) {
-        window.prevCity = window.currentCity;
-        window.currentCity = window.data_array[thenum].location;
-    } else {
-        window.currentCity = window.data_array[thenum].location;
-        window.prevCity = window.currentCity;
-    }
-    if(window.prevCity != window.currentCity) {
-        clearList("chatList");
-    }
+    // if(window.currentCity != null) {
+    //     window.prevCity = window.currentCity;
+    //     window.currentCity = window.data_array[thenum].location;
+    // } else {
+    //     window.currentCity = window.data_array[thenum].location;
+    //     window.prevCity = window.currentCity;
+    // }
+    // if(window.prevCity != window.currentCity) {
+    //     clearList("chatList");
+    // }
+    clearList("chatList");
     document.getElementById("chatInputBox").setAttribute("style","visibility:visible");
     showOrderPage(window.data_array[thenum]);
     chatListener(window.data_array[thenum].location);
@@ -288,8 +289,6 @@ function chatListener(cityLocation) {
 }
 
 function updateChat(snapshot) {
-    //let preObject = document.getElementById("chatList");
-    //console.log(snapshot.val());
     let chatLine = document.createElement("DIV");
     let date = new Date(snapshot.created);
     //let dateString = date.format("DD/MM/YY'T'HH:MM").toString();
