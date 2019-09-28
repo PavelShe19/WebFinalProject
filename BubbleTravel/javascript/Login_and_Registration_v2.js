@@ -15,8 +15,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         document.getElementById("user_div").style.display = "block";
         document.getElementById("login_div").style.display = "none";
-
-        // document.getElementById("packages").style.display = "block";
         document.getElementById("location_and_weather").style.display = "block";
 
         var user = firebase.auth().currentUser;
@@ -33,9 +31,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // No user is signed in.
         document.getElementById("user_div").style.display = "none";
         document.getElementById("login_div").style.display = "block";
-        // document.getElementById("packages").style.display = "invisible";
         document.getElementById("location_and_weather").style.display = "none";
-        //window.location.href = "../MainPage.html";
     }
 });
 
@@ -70,11 +66,8 @@ function signUp() {
 
 
 function login() {
-    //console.log("DEBUG: IN: login()");
     var userEmail = document.getElementById("email_field").value;
     var userPass = document.getElementById("password_field").value;
-    //console.log("DEBUG: EMAIL: %s", userEmail);
-    //console.log("DEBUG: PASS: %s", userPass);
     firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
 
         // Handle Errors here.
@@ -288,7 +281,7 @@ function updateCosts() {
 
 function orderPackage() {
     if(car_selected_index == -1 && flight_selected_index == -1 && hotel_selected_index == -1) {
-        alert("Please select at least on option");
+        alert("Please select at least one option");
         return;
     }
     let db = firebase.firestore();
