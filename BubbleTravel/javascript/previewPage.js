@@ -291,6 +291,8 @@ function updateChat(snapshot) {
 }
 
 function sendChatMsg() {
+    location.replace("http://localhost:5000/")
+    /*
     let text = document.getElementById("inputChat").value;
     document.getElementById("inputChat").value = "";
     if(text != null && text != "") {
@@ -300,4 +302,5 @@ function sendChatMsg() {
             userName: firebase.auth().currentUser.email.split("@")[0]
         });
     }
+    */
 }

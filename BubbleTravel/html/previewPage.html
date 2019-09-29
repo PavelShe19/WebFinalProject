@@ -11,14 +11,17 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <title>Bubbletravel</title>
-    <link rel="stylesheet" href="../css/orderPage.css" />
+    <link rel="stylesheet" href="../css/previewPage.css" />
 </head>
-
 <body>
+        <img id="im" src="C:/Users/galpa/OneDrive/Documents/GitHub/WebFinalProject/BubbleTravel/resources/registeration_login_picture.jpg">
+
     <div class="container">
         <div class="row topbanner">
             <div class="col">
                 <div id="login_div" class="main-div">
+
+
                     <input type="email" placeholder="EMAIL" id="email_field" />
                     <input type="password" placeholder="PASSWORD" id="password_field" />
 
@@ -35,13 +38,13 @@
         </div>
         <div class="row" id="titles">
             <div class="col" id="titleOrderList">
-                ORDER LIST
+                <b>ORDER LIST</b>
             </div>
             <div class="col" id="titleOrder">
-                ORDER
+                <b>ORDER</b>
             </div>
             <div class="col" id="titleChat">
-                CHAT
+                <b>CHAT</b>
             </div>
         </div>
         <div class="row bottombanner" id="packages">
@@ -50,7 +53,7 @@
             <div class="col d-flex flex-column" id="chatList"></div>
             <div id="chatInputBox" style="visibility: hidden">
                 <input type="text" id="inputChat" type="text">
-                <button type="button" id="btnInputChat" onclick="sendChatMsg()">ENTER</button>         
+                <button type="button" id="btnInputChat" onclick="sendChatMsg()">Enter to chat</button>         
             </div>
         </div>
     </div>
