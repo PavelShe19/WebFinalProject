@@ -171,4 +171,9 @@ body {
     bottom: 60px;
     right: 60px; 
 }
+#im{
+  position: absolute;
+  width: 100%;
+  height: 286px;
+}
   
