@@ -16,7 +16,7 @@
 
 
 <body>
-    <img id="im" src="../resources/backgrund.jpg">
+    <img id="im" src="../resources/backgrund.jpg" style="height: 100%">
 
     <div class="container">
 
@@ -37,26 +37,56 @@
                     <button id="btn4" onclick="showOrders()">MY ORDERS</button>
                 </div>
             </div>
-            <div class="col" id="location_and_weather">
-                <select class="form-control" id="sel2" autocomplete="off" name="sellist2"
-                    onchange="scheduleA.call(this, event)">
-                    <option>PICK A LOCATION</option>
-                    <option>LONDON</option>
-                    <option>PARIS</option>
-                    <option>NEW YORK</option>
-                    <option>ROME</option>
-                </select>
-
-                <input class="form-control" id="sel3" type="text" name="daterange" value="09/23/2019 - 10/1/2019" />
-                <div>
-                    <div id="description"></div>
-                    <h1 id="temp"></h1>
-                    <div id="location"></div>
+            <div class="col">
+                <div class="row" id="location_and_weather">
+                    <select class="form-control" id="sel2" autocomplete="off" name="sellist2"
+                        onchange="scheduleA.call(this, event)">
+                        <option>PICK A LOCATION</option>
+                        <option>LONDON</option>
+                        <option>PARIS</option>
+                        <option>NEW YORK</option>
+                        <option>ROME</option>
+                    </select>
+                    <input class="form-control" id="sel3" type="text" name="daterange" value="09/23/2019 - 10/1/2019" />
+                </div>
+            
+                <div id="weather" class="row" >
+                    <div class="col">
+                        <img id="im0">
+                        <div id="description0">ICON</div>
+                        <div id="temp0">TEMP</div>
+                        <div id="day0">DAY</div>
+                    </div>
+                    <div class="col">
+                        <img id="im1">
+                        <div id="description1">ICON</div>
+                        <div id="temp1">TEMP</div>
+                        <div id="day1">DAY</div>
+                    </div>
+                    <div class="col">
+                        <img id="im2">
+                        <div id="description2">ICON</div>
+                        <div id="temp2">TEMP</div>
+                        <div id="day2">DAY</div>
+                    </div>
+                    <div class="col">
+                        <img id="im3">
+                        <div id="description3">ICON</div>
+                        <div id="temp3">TEMP</div>
+                        <div id="day3">DAY</div>
+                    </div>
+                    <div class="col">
+                        <img id="im4">
+                        <div id="description4">ICON</div>
+                        <div id="temp4">TEMP</div>
+                        <div id="day4">DAY</div>
+                    </div>
                 </div>
             </div>
         </div>
+        
         <div class="row justify-content-end" id="cost">
-            
+
             <div class="col-4" id="totalCost">
                 TOTAL COST: 0
             </div>
@@ -76,7 +106,7 @@
                 CAR COST: 0
             </div>
         </div>
-        
+
         <div class="row bottombanner" id="packages">
             <!-- <div class="col"> -->
             <div class="col d-flex flex-column" id="flightList"></div>
@@ -112,8 +142,7 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
