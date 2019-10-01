@@ -16,7 +16,7 @@ function drawWeather(d) {
 	let tempString = 'temp';
 	let dayString = 'day';
 	let iconString = 'im';
-	let iconURL = "http://openweathermap.org/img/wn/";
+	let iconURL = "https://openweathermap.org/img/wn/";
 	let index = 0;
 	let i;
 	for (i = 0; i < d.length; i++) {
