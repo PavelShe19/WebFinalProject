@@ -149,19 +149,6 @@ function getDataFromFirebase(location, collection, fieldName, list, data_array, 
     }
 }
 
-function putDataInList(listName, data_array) {
-    var index = 1;
-    data_array.forEach(element => {
-        var node = document.createElement("LI");
-        node.setAttribute("id", listName.concat("_", index.toString()));
-        index = index + 1;
-        node.setAttribute("class", "list-group-item");
-        var textnode = document.createTextNode(element.name);         // Create a text node
-        node.appendChild(textnode);                              // Append the text to <li>
-        document.getElementById(listName).appendChild(node);     // Append <li> to <ul> with id="myList" 
-    });
-}
-
 function putDataInListExp(listName, data_array, quality_names) {
 
     var index = 1;
@@ -282,6 +269,10 @@ function updateCosts() {
 function orderPackage() {
     if(car_selected_index == -1 && flight_selected_index == -1 && hotel_selected_index == -1) {
         alert("Please select at least one option");
+        return;
+    }
+    if(window.date_from == null || window.date_to == null) {
+        alert("Please select dates");
         return;
     }
     let db = firebase.firestore();

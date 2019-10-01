@@ -16,9 +16,7 @@ function drawWeather(d) {
 	let tempString = 'temp';
 	let dayString = 'day';
 	let iconString = 'im';
-
 	let iconURL = "http://openweathermap.org/img/wn/";
-
 	let index = 0;
 	let i;
 	for (i = 0; i < d.length; i++) {
@@ -28,8 +26,6 @@ function drawWeather(d) {
 			let newDay = dayString.concat(index);
 			let newIm = iconString.concat(index);
 			
-			console.log(i);
-
 			var celcius = Math.round(parseFloat(d[i].main.temp_max) - 273.15);
 			var description = d[i].weather[0].description;
 			var name = getDayName(d[i].dt_txt);
